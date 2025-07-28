@@ -11,7 +11,7 @@
 
 * cronie
 
-* ansible
+* ansible (for local vm)
 
 * mongodb
 
