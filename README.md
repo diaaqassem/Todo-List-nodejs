@@ -1,5 +1,5 @@
 
-
+This project implements a full CI/CD pipeline, automated infrastructure provisioning, and containerized deployment for the **Todo-List-nodejs** application.
 📝 To-Do List nodeJs
 
 The to-do list application is a web-based application that allows users to create and manage a list of tasks. The user interface consists of a form to add new tasks, a list of all tasks, and controls to mark tasks as complete or delete them.
@@ -13,18 +13,14 @@ When the user adds a new task using the form, Node.js and Express.js handle the 
 Overall, the todo list application using Node.js, Express.js, EJS, CSS, JavaScript, MongoDB, Mongoose, and Nodemon can be a great way to create a functional and interactive web application that allows users to manage their tasks online. With the right combination of technologies, it is possible to create an application that is both functional and aesthetically pleasing, making it easy for users to manage their tasks in a convenient and efficient way.
 
 Technologies Used: NodeJS, ExpressJS, EJS, CSS, JavaScript, Nodemon, MongoDB, Mongoose.
-## Demo
-
-Under process...
 
 ## Features
 
 - Create, Update, and Delete Tasks: Enable users to create new tasks, update existing tasks (e.g., mark as completed, edit task details), and delete tasks they no longer need.
 - Task Categories provides Implement the ability for users to categorize their tasks into different categories (e.g., work, personal, shopping) or assign labels/tags to tasks for better organization and filtering.
 - MongoDb to store your the user data
-## Run Locally
 
-This project implements a full CI/CD pipeline, automated infrastructure provisioning, and containerized deployment for the **Todo-List-nodejs** application.
+
 
 ---
 
