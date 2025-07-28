@@ -1,7 +1,4 @@
 
-## Documentation
-
-[Documentation](https://linktodocumentation)
 
 📝 To-Do List nodeJs
 
@@ -19,10 +16,6 @@ Technologies Used: NodeJS, ExpressJS, EJS, CSS, JavaScript, Nodemon, MongoDB, Mo
 ## Demo
 
 Under process...
-## Authors
-
-- [@AnkitVishwakarma](https://github.com/Ankit6098)
-
 
 ## Features
 
@@ -31,34 +24,120 @@ Under process...
 - MongoDb to store your the user data
 ## Run Locally
 
-Clone the project
+This project implements a full CI/CD pipeline, automated infrastructure provisioning, and containerized deployment for the **Todo-List-nodejs** application.
+
+---
+
+## ** Part 1 – Docker & GitHub Actions**
+
+### **1. Clone the Repository**
 
 ```bash
-  git clone https://github.com/Ankit6098/Todos-nodejs
+git clone https://github.com/diaaqassem/Todo-List-nodejs
+cd Todo-List-nodejs
 ```
 
-Go to the project directory and open index.html file
+### **2. Configure `.env`**
+
+* Update the `.env` file with **your own MongoDB database connection**.
+
+### **3. Dockerization**
+
+* **Files:**
+
+  * `Dockerfile` → root directory
+  * `.dockerignore` → root directory
+
+### **4. CI Pipeline with GitHub Actions**
+
+* **Workflow file location:** `.github/workflows/docker-build-push.yml`
+* Adds a CI pipeline that builds the image and pushes it to a **private Docker registry** whenever changes are pushed to the `master` branch.
+  * Generate Token For EC2 instance
+
+---
+
+## ** Part 2 – VM Setup Conf in EC2 instance by VM on Local by Using Ansible**
+
+* in **Linux VM** (AWS EC2).
+* Add your **public SSH key** to `/home/ec2-user/.ssh/authorized_keys`.
+
+### **2. Ansible Configuration**
+
+* **Directory:** `ansible/`
+
+  * `hosts` → contains the VM’s IP.
+  *  `ansible.cfg` → contain conf.
+  * `playbook.yml` → installs and configures Docker on the VM (amazon linux).
+
+### **3. Run the Playbook**
 
 ```bash
-  cd Todos-nodejs
+cd ansible
+ansible-playbook -i playbook.yml
 ```
 
-Install the packages
+---
+
+## ** Part 3 – Docker Compose & Auto Update**
+
+### **1. Deploy Application**
+
+* **Directory:** `docker-compose/`
+
+  * `docker-compose.yml` → defines the application and health checks.
+
+### **2. Run the Application**
 
 ```bash
-  npm install / npm i
+cd docker-compose
+docker compose up -d
 ```
 
-Start the Server
+### **3. Auto Updates**
+
+* A **cron job** checks for new image updates every 10 minutes:
+
+```
+*/10 * * * * cd "/home/ec2-user/Todo-List-nodejs/docker-compose/" && docker compose pull && docker compose up -d
+```
+
+* Cron job is lightweight, simple, and does not require additional containers.
+* or using tool **Watchtower**.
+
+---
+
+## ** Part 4 – Bonus: Kubernetes + ArgoCD**
+
+### **1. Install Kubernetes**
+
+### **2. Kubernetes Manifests**
+
+* **Directory:** `k8s/`
+
+  * `deployment.yaml` → defines the application deployment.
+  * `service.yaml` → exposes the service via NodePort.
+
+### **3. Apply Kubernetes Manifests**
 
 ```bash
-    npm start / nodemon start
+kubectl apply -f k8s/
 ```
-## Acknowledgements
 
- - [nodemon](https://nodemon.io/)
- - [mongoDb](https://www.mongodb.com/)
- - [mongoose](https://mongoosejs.com/)
+### **4. (Optional) ArgoCD for Continuous Delivery**
+
+* Install ArgoCD in the cluster.
+* Connect it to the GitHub repo to continuously sync Kubernetes manifests.
+* **Application file:** `k8s/application.yaml`.
+
+---
+
+---
+
+### ****
+
+Prepared as part of the **DevOps Internship Assessment**.
+
+---
 
 
 ## Screenshots
@@ -72,38 +151,5 @@ Start the Server
 ![225239841-4b5d77f0-4a54-4339-b6b3-b6a1be6776b5](https://github.com/Ankit6098/Todos-nodejs/assets/92246613/f5ffc3b8-480f-4d11-9a0b-c469e3c17e8e)
 
 
-## Related
-
-Here are some other projects
-
-[Alarm CLock - javascript](https://github.com/Ankit6098/Todos-nodejs)\
-[IMDb Clone - javascript](https://github.com/Ankit6098/IMDb-Clone)
-
-
-## 🚀 About Me
-I'm a full stack developer...
-
-
-# Hi, I'm Ankit! 👋
-
-I'm a full stack developer 😎 ... Love to Develop Classic Unique fascinating and Eye Catching UI and Love to Create Projects and Building logics.
-## 🔗 Links
-[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ankithub.me/Resume/)
-
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColorwhite=)](https://www.linkedin.com/in/ankit-vishwakarma-6531221b0/)
-
-
-## Other Common Github Profile Sections
-🧠 I'm currently learning FullStack Developer Course from Coding Ninjas
-
-📫 How to reach me ankitvis609@gmail.com
-
-
-## 🛠 Skills
-React, Java, Javascript, HTML, CSS, Nodejs, ExpressJs, Mongodb, Mongoose...
-
-
-## Feedback
-
-If you have any feedback, please reach out to us at ankitvis609@gmail.com
+---
 
