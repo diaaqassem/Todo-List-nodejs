@@ -54,17 +54,17 @@ cd Todo-List-nodejs
 ##  Part 2 – VM Setup Conf in EC2 instance by VM on Local by Using Ansible
 
 * in Linux VM (AWS EC2).
-* Add your **public SSH key** to `/home/ec2-user/.ssh/authorized_keys`.
+* Add your public SSH key to `/home/ec2-user/.ssh/authorized_keys`.
 
-### **2. Ansible Configuration**
+### 2. Ansible Configuration
 
-* **Directory:** `ansible/`
+* Directory: `ansible/`
 
   * `hosts` → contains the VM’s IP.
   *  `ansible.cfg` → contain conf.
   * `playbook.yml` → installs and configures Docker on the VM (amazon linux).
 
-### **3. Run the Playbook**
+### 3. Run the Playbook
 
 ```bash
 cd ansible
@@ -73,24 +73,24 @@ ansible-playbook -i playbook.yml
 
 
 
-## ** Part 3 – Docker Compose & Auto Update**
+## Part 3 – Docker Compose & Auto Update
 
-### **1. Deploy Application**
+### 1. Deploy Application
 
-* **Directory:** `docker-compose/`
+* Directory: `docker-compose/`
 
   * `docker-compose.yml` → defines the application and health checks.
 
-### **2. Run the Application**
+### 2. Run the Application
 
 ```bash
 cd docker-compose
 docker compose up -d
 ```
 
-### **3. Auto Updates**
+### 3. Auto Updates
 
-* A **cron job** checks for new image updates every 10 minutes:
+* A *cron job* checks for new image updates every 10 minutes:
 
 ```
 */10 * * * * cd "/home/ec2-user/Todo-List-nodejs/docker-compose/" && docker compose pull && docker compose up -d
@@ -101,34 +101,31 @@ docker compose up -d
 
 ---
 
-## ** Part 4 – Bonus: Kubernetes + ArgoCD**
+##  Part 4 – Bonus: Kubernetes + ArgoCD
 
-### **1. Install Kubernetes**
+### 1. Install Kubernetes
 
-### **2. Kubernetes Manifests**
+### 2. Kubernetes Manifests
 
-* **Directory:** `k8s/`
+* Directory: `k8s/`
 
   * `deployment.yaml` → defines the application deployment.
   * `service.yaml` → exposes the service via NodePort.
 
-### **3. Apply Kubernetes Manifests**
+### 3. Apply Kubernetes Manifests
 
 ```bash
 kubectl apply -f k8s/
 ```
 
-### **4. (Optional) ArgoCD for Continuous Delivery**
+### 4. (Optional) ArgoCD for Continuous Delivery
 
 * Install ArgoCD in the cluster.
 * Connect it to the GitHub repo to continuously sync Kubernetes manifests.
-* **Application file:** `k8s/application.yaml`.
+* Application file: `k8s/application.yaml`.
 
 ---
 
----
-
-### ****
 
 Prepared as part of the **DevOps Internship Assessment**.
 
