@@ -17,7 +17,7 @@
 
 
 
-
+---
 ## Part 1 – Docker & GitHub Actions
 
 ### 1. Clone the Repository
@@ -66,7 +66,7 @@ cd ansible
 ansible-playbook playbook.yml
 ```
 
-
+---
 
 ## Part 3 – Docker Compose & Auto Update
 
