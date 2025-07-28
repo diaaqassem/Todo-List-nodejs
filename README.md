@@ -71,7 +71,7 @@ cd ansible
 ansible-playbook -i playbook.yml
 ```
 
----
+
 
 ## ** Part 3 – Docker Compose & Auto Update**
 
