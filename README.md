@@ -63,7 +63,7 @@ cd Todo-List-nodejs
 
 ```bash
 cd ansible
-ansible-playbook -i playbook.yml
+ansible-playbook playbook.yml
 ```
 
 
