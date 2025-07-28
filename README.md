@@ -7,9 +7,9 @@
 
 * docker-compose
 
-* kubectl (kube)
+* kubectl (minikube)
 
-* cronie (cron)
+* cronie
 
 * ansible
 
@@ -40,7 +40,7 @@ cd Todo-List-nodejs
 
 ### 4. CI Pipeline with GitHub Actions
 
-* Workflow file location: `.github/workflows/docker-build-push.yml`
+* Workflow file location: `.github/workflows/app-ci.yml`
 * Adds a CI pipeline that builds the image and pushes it to a private Docker registry** whenever changes are pushed to the `master` branch.
   * Generate Token For EC2 instance
 
