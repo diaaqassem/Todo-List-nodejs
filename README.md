@@ -23,37 +23,37 @@ Technologies Used: NodeJS, ExpressJS, EJS, CSS, JavaScript, Nodemon, MongoDB, Mo
 
 
 
-## ** Part 1 – Docker & GitHub Actions**
+## Part 1 – Docker & GitHub Actions
 
-### **1. Clone the Repository**
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/diaaqassem/Todo-List-nodejs
 cd Todo-List-nodejs
 ```
 
-### **2. Configure `.env`**
+### 2. Configure `.env`
 
-* Update the `.env` file with **your own MongoDB database connection**.
+* Update the `.env` file with your own MongoDB database connection.
 
-### **3. Dockerization**
+### 3. Dockerization
 
-* **Files:**
+* Files:
 
   * `Dockerfile` → root directory
   * `.dockerignore` → root directory
 
-### **4. CI Pipeline with GitHub Actions**
+### 4. CI Pipeline with GitHub Actions
 
-* **Workflow file location:** `.github/workflows/docker-build-push.yml`
-* Adds a CI pipeline that builds the image and pushes it to a **private Docker registry** whenever changes are pushed to the `master` branch.
+* Workflow file location: `.github/workflows/docker-build-push.yml`
+* Adds a CI pipeline that builds the image and pushes it to a private Docker registry** whenever changes are pushed to the `master` branch.
   * Generate Token For EC2 instance
 
 ---
 
-## ** Part 2 – VM Setup Conf in EC2 instance by VM on Local by Using Ansible**
+##  Part 2 – VM Setup Conf in EC2 instance by VM on Local by Using Ansible
 
-* in **Linux VM** (AWS EC2).
+* in Linux VM (AWS EC2).
 * Add your **public SSH key** to `/home/ec2-user/.ssh/authorized_keys`.
 
 ### **2. Ansible Configuration**
