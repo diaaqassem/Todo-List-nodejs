@@ -25,8 +25,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded());
 
 // set up the static files
-app.use(express.static('assets'));
-
+//app.use(express.static('assets'));
+app.use(express.static(path.join(__dirname, 'assets')));
 
 // registering the user in the database
 app.post('/register', (req, res) => {
